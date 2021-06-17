@@ -49,4 +49,12 @@ class MySortTest {
         assertFalse(isSingleElement);
     }
 
+    @Test
+    public void getResultTwoElements01() {
+        List<Integer> input = new ArrayList<>(asList(1,2));
+        MySort mySort = new MySort(input);
+        List<Integer> result = mySort.getResult();
+        assertEquals(new ArrayList<>(asList(1,2)),result);
+    }
+
 }
