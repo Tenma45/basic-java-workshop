@@ -38,4 +38,15 @@ class MySortTest {
         List<Integer> result = mySort.getResult();
         assertEquals(new ArrayList<>(asList(1)),result);
     }
+
+    @Test
+    public void multipleElement() {
+        List<Integer> input = new ArrayList<>(asList(1,2));
+        MySort mySort = new MySort(input);
+        boolean isEmpty = mySort.checkIfSingleElement();
+        boolean isSingleElement = mySort.checkIfSingleElement();
+        assertFalse(isEmpty);
+        assertFalse(isSingleElement);
+    }
+
 }
