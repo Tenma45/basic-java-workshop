@@ -23,4 +23,12 @@ class MySortTest {
         assertTrue(isSingleElement);
     }
 
+    @Test
+    public void getResultEmptyList() {
+        List<Integer> input = new ArrayList<>();
+        MySort mySort = new MySort(input);
+        ArrayList<Integer> result = mySort.getResult();
+        assertEquals(new ArrayList<>(),result);
+    }
+
 }
