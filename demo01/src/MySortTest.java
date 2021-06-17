@@ -27,8 +27,15 @@ class MySortTest {
     public void getResultEmptyList() {
         List<Integer> input = new ArrayList<>();
         MySort mySort = new MySort(input);
-        ArrayList<Integer> result = mySort.getResult();
+        List<Integer> result = mySort.getResult();
         assertEquals(new ArrayList<>(),result);
     }
 
+    @Test
+    public void getResultSingleElementList() {
+        List<Integer> input = new ArrayList<>(asList(1));
+        MySort mySort = new MySort(input);
+        List<Integer> result = mySort.getResult();
+        assertEquals(new ArrayList<>(asList(1)),result);
+    }
 }

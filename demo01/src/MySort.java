@@ -17,7 +17,14 @@ public class MySort {
         return Integer.compare(this.input.size(),1)==0;
     }
 
-    public ArrayList<Integer> getResult() {
-        return new ArrayList<>();
+    public List<Integer> getResult() {
+        if(checkIfEmpty()){
+            return new ArrayList<>();
+        }
+        if(checkIfSingleElement()){
+            System.out.println(this.input);
+            return this.input;
+        }
+        return this.input;
     }
 }
