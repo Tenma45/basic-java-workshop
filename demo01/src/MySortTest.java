@@ -57,4 +57,11 @@ class MySortTest {
         assertEquals(new ArrayList<>(asList(1,2)),result);
     }
 
+    @Test
+    public void getResultTwoElements02() {
+        List<Integer> input = new ArrayList<>(asList(2,1));
+        MySort mySort = new MySort(input);
+        List<Integer> result = mySort.getResult();
+        assertEquals(new ArrayList<>(asList(1,2)),result);
+    }
 }
