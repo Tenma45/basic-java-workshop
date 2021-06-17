@@ -96,4 +96,12 @@ class MySortTest {
         List<Integer> result = mySort.getResult();
         assertEquals(new ArrayList<>(asList(1,2,3)),result);
     }
+
+    @Test
+    public void getResultFiveElements() {
+        List<Integer> input = new ArrayList<>(asList(5,4,3,2,1));
+        MySort mySort = new MySort(input);
+        List<Integer> result = mySort.getResult();
+        assertEquals(new ArrayList<>(asList(1,2,3,4,5)),result);
+    }
 }
