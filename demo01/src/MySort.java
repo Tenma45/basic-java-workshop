@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class MySort {
@@ -9,9 +10,11 @@ public class MySort {
     }
 
     public boolean checkIfEmpty() {
-        if(Integer.compare(this.input.size(),0)==0){
-            return true;
-        }
-        return false;
+        return Integer.compare(this.input.size(),0)==0;
     }
+
+    public boolean checkIfSingleElement() {
+        return Integer.compare(this.input.size(),1)==0;
+    }
+
 }

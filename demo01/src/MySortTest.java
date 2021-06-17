@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.Arrays.asList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MySortTest {
@@ -13,4 +14,13 @@ class MySortTest {
         boolean isEmpty = mySort.checkIfEmpty();
         assertTrue(isEmpty);
     }
+
+    @Test
+    public void singleElementList() {
+        List<Integer> input = new ArrayList<>(asList(1));
+        MySort mySort = new MySort(input);
+        boolean isSingleElement = mySort.checkIfSingleElement();
+        assertTrue(isSingleElement);
+    }
+
 }
