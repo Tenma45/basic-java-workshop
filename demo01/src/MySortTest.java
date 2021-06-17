@@ -80,4 +80,12 @@ class MySortTest {
         List<Integer> result = mySort.getResult();
         assertEquals(new ArrayList<>(asList(1,2,3)),result);
     }
+
+    @Test
+    public void getResultThreeElements03() {
+        List<Integer> input = new ArrayList<>(asList(1,3,2));
+        MySort mySort = new MySort(input);
+        List<Integer> result = mySort.getResult();
+        assertEquals(new ArrayList<>(asList(1,2,3)),result);
+    }
 }
