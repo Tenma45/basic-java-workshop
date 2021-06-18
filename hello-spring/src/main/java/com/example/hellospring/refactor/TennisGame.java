@@ -13,16 +13,25 @@ public class TennisGame {
     }
 
     public String getScore() {
-        String calledScore;
-        if (player1Score < 4 && player2Score < 4 && !(player1Score + player2Score == 6)) {
+        String player1CalledScore;
+        String player2CalledScore;
+        final int maxPlayerScoreBeforeDeuce = 4;
+        final int maxTotalScoreBeforeDeuce = 6;
+        boolean isDeuce = player1Score == player2Score;
+        boolean finishDeuce = Math.abs(player1Score-player2Score) > 1;
+        if (    player1Score < maxPlayerScoreBeforeDeuce
+                && player2Score < maxPlayerScoreBeforeDeuce
+                && !(player1Score + player2Score == maxTotalScoreBeforeDeuce)) {
             String[] calledScoreSet = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
-            calledScore = calledScoreSet[player1Score];
-            return (player1Score == player2Score) ? calledScore + "-All" : calledScore + "-" + calledScoreSet[player2Score];
+            player1CalledScore = calledScoreSet[player1Score];
+            player2CalledScore = calledScoreSet[player2Score];
+            return (isDeuce) ? player1CalledScore + "-All"
+                    : player1CalledScore + "-" + player2CalledScore;
         } else {
-            if (player1Score == player2Score)
+            if (isDeuce)
                 return "Deuce";
-            calledScore = player1Score > player2Score ? player1Name : player2Name;
-            return ((player1Score - player2Score)*(player1Score - player2Score) == 1) ? "Advantage " + calledScore : "Win for " + calledScore;
+            String leadPlayerName = player1Score > player2Score ? player1Name : player2Name;
+            return (!finishDeuce) ? "Advantage " + leadPlayerName : "Win for " + leadPlayerName;
         }
     }
 
@@ -31,7 +40,6 @@ public class TennisGame {
             this.player1Score += 1;
         else
             this.player2Score += 1;
-
     }
 
 }
