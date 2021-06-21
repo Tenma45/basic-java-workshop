@@ -2,7 +2,7 @@ package com.example.hellorest.employee;
 
 import java.util.Objects;
 
-public class EmployeeResponse{
+public class EmployeeResponse {
     private int id;
     private String fname;
     private String lname;
