@@ -4,12 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
+import java.util.Random;
 
 @RestController
 public class EmployeeController {
 
     @Autowired
-    private CustomRandom random;
+    private Random random;
 
     @Autowired
     private EmployeeRepository repository;

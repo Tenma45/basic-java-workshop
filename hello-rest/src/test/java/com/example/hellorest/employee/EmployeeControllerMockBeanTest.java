@@ -22,7 +22,7 @@ public class EmployeeControllerMockBeanTest {
     private TestRestTemplate restTemplate;
 
     @MockBean
-    private CustomRandom random;
+    private Random random;
 
     @MockBean
     private EmployeeRepository repository;
