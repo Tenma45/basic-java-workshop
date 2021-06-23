@@ -3,6 +3,8 @@ package com.example.hellorest.employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 public class EmployeeController {
 
@@ -11,6 +13,9 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeRepository repository;
+
+    @Autowired
+    private EmployeeService emlpoyeeService;
 
     @GetMapping("/employee/{id}")
     public EmployeeResponse getEmployeeByID(@PathVariable String id) {
@@ -21,12 +26,9 @@ public class EmployeeController {
         }catch (NumberFormatException e) {
             // ERROR => TODO ?
         }
-        // Workshop
-        Employee data = new Employee("Worapat","Tubtimdee");
-        repository.save(data);
-        Employee result = repository.getById(_id);
-        EmployeeResponse response = new EmployeeResponse(result.getId(),result.getFirstName(),result.getLastName());
-        return response;
+
+        EmployeeResponse employeeResponse = emlpoyeeService.process(_id);
+        return employeeResponse;
     }
 
     // employee?id2==?
@@ -39,16 +41,14 @@ public class EmployeeController {
         }catch (NumberFormatException e) {
             // ERROR => TODO ?
         }
-        Employee data = new Employee("Worapat","Tubtimdee");
-        repository.save(data);
-        Employee result = repository.getById(_id);
-        EmployeeResponse response = new EmployeeResponse(result.getId(),result.getFirstName(),result.getLastName());
+        EmployeeResponse response = new EmployeeResponse(_id,"Somkiat","Pui");
         return response;
     }
 
     @PostMapping("/employee")
     public EmployeeResponse createNewEmployee(@RequestBody EmployeeRequest request) {
         // Validation
-        return new EmployeeResponse(999, request.getFname(), request.getLname());
+        EmployeeResponse response = new EmployeeResponse(999,request.getFname(),request.getLname());
+        return response;
     }
 }

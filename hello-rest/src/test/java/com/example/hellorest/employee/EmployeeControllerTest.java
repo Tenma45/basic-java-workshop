@@ -18,12 +18,18 @@ public class EmployeeControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
+    @Autowired
+    private EmployeeRepository repository;
+
     @MockBean
     private CustomRandom random;
 
+
     @Test
-    public void callApiWithPathVariable() {
+    public void callApiWithPathVariableAndDatabase() {
         when(random.nextInt(anyInt())).thenReturn(5);
+
+        repository.save(new Employee(123,"Somkiat","Pui"));
 
         EmployeeResponse expected
                 = new EmployeeResponse(123, "Somkiat5", "Pui");
