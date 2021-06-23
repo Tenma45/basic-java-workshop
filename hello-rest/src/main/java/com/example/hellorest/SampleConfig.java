@@ -6,7 +6,6 @@ import org.springframework.web.client.RestTemplate;
 
 @Component
 public class SampleConfig {
-
     @Bean
     public RestTemplate customRestTemplate() {
         return new RestTemplate();

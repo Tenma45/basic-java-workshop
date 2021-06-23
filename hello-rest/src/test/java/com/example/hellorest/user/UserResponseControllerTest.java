@@ -21,7 +21,7 @@ class UserResponseControllerTest {
                     new Address("Si Phraya Rd.","18/48","Bangkok","10500",new Geo("13.73","100.53")),
                     "09581583xx","me.com",new Company("KBTG","Technology Banking","Develop Banking Application"));
         UserResponse response
-                = restTemplate.getForObject("/users/1", UserResponse.class);
+                = restTemplate.getForObject("/user/1", UserResponse.class);
 //        assertEquals(expected, response); // Pass ?
     }
 

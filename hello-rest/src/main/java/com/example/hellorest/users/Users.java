@@ -1,4 +1,4 @@
-package com.example.hellorest.usergateway;
+package com.example.hellorest.users;
 
 import java.util.List;
 

@@ -22,12 +22,12 @@ public class UserController {
     )
     );
 
-    @GetMapping("/users")
+    @GetMapping("/user")
     public List<UserResponse> getUsers(){
         return users;
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/user/{id}")
     public UserResponse getUserByID(@PathVariable String id){
         int _id = 0;
         try {

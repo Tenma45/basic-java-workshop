@@ -35,7 +35,7 @@ public class EmployeeService {
                     employee.getLastName());
         }
         // Not found ?
-        return new EmployeeResponse();
+        throw new EmployeeNotFoundException("Employee "+id+" not found");
     }
 
 }

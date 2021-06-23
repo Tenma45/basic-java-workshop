@@ -15,24 +15,4 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 class HelloRestApplicationTests {
 
-	@Autowired
-	private TestRestTemplate restTemplate;
-
-	@MockBean
-	private CustomRandom random;
-
-	@Test
-	public void callApiWithPathVariable() {
-		when(random.nextInt(anyInt())).thenReturn(5);
-
-		EmployeeResponse expected
-				= new EmployeeResponse(123, "Somkiat5", "Pui");
-		EmployeeResponse response
-				= restTemplate.getForObject("/employee/123", EmployeeResponse.class);
-		assertEquals(123, response.getId());
-		assertEquals("Somkiat5", response.getFname());
-		assertEquals("Pui", response.getLname());
-		assertEquals(expected, response); // Pass ?
-	}
-
 }

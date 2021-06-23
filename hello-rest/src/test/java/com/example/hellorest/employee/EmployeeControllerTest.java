@@ -1,5 +1,7 @@
 package com.example.hellorest.employee;
 
+
+import com.example.hellorest.users.Users;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -60,5 +62,4 @@ public class EmployeeControllerTest {
         assertEquals("Worapat", response.getFname());
         assertEquals("Tubtimdee", response.getLname());
     }
-
 }

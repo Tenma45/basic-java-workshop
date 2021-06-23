@@ -1,6 +1,5 @@
-package com.example.hellorest.usergateway;
+package com.example.hellorest.users;
 
-import org.h2.engine.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,11 +25,5 @@ class UserGatewayTest {
         UserModel user = userGateway.getUserById(1);
         assertEquals(1,user.getId());
         assertEquals("Leanne Graham",user.getName());
-    }
-
-    @Test
-    public void tryToCallAPIWithCondition() {
-        List<UserModel> users = userGateway.getEvenUsers();
-        assertEquals(5,users.size());
     }
 }

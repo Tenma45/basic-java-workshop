@@ -1,4 +1,4 @@
-package com.example.hellorest.usergateway;
+package com.example.hellorest.users;
 
 public class UserModel {
     private int id;
