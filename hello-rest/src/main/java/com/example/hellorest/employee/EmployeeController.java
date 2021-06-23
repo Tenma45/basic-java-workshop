@@ -9,8 +9,11 @@ public class EmployeeController {
     @Autowired
     private CustomRandom random;
 
+    @Autowired
+    private EmployeeRepository repository;
+
     @GetMapping("/employee/{id}")
-    public EmployeeResponse getEmployeeByID(@PathVariable String id) {
+    public Employee getEmployeeByID(@PathVariable String id) {
         // Validate id => Number only
         int _id = 0;
         try {
@@ -19,13 +22,15 @@ public class EmployeeController {
             // ERROR => TODO ?
         }
         // Workshop
-        int number = random.nextInt(10);
-        return new EmployeeResponse(_id, "Somkiat" + number, "Pui");
+        Employee data = new Employee("Worapat","Tubtimdee");
+        repository.save(data);
+        Employee result = repository.getById(_id);
+        return result;
     }
 
     // employee?id2==?
     @GetMapping("/employee")
-    public EmployeeResponse getEmployeeByID2(@RequestParam String id) {
+    public Employee getEmployeeByID2(@RequestParam String id) {
         // Validate id => Number only
         int _id = 0;
         try {
@@ -33,7 +38,10 @@ public class EmployeeController {
         }catch (NumberFormatException e) {
             // ERROR => TODO ?
         }
-        return new EmployeeResponse(_id, "Somkiat", "Pui");
+        Employee data = new Employee("Worapat","Tubtimdee");
+        repository.save(data);
+        Employee result = repository.getById(_id);
+        return result;
     }
 
     @PostMapping("/employee")
