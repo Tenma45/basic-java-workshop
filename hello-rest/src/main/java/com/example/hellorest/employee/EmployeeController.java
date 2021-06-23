@@ -13,7 +13,7 @@ public class EmployeeController {
     private EmployeeRepository repository;
 
     @GetMapping("/employee/{id}")
-    public Employee getEmployeeByID(@PathVariable String id) {
+    public EmployeeResponse getEmployeeByID(@PathVariable String id) {
         // Validate id => Number only
         int _id = 0;
         try {
@@ -25,12 +25,13 @@ public class EmployeeController {
         Employee data = new Employee("Worapat","Tubtimdee");
         repository.save(data);
         Employee result = repository.getById(_id);
-        return result;
+        EmployeeResponse response = new EmployeeResponse(result.getId(),result.getFirstName(),result.getLastName());
+        return response;
     }
 
     // employee?id2==?
     @GetMapping("/employee")
-    public Employee getEmployeeByID2(@RequestParam String id) {
+    public EmployeeResponse getEmployeeByID2(@RequestParam String id) {
         // Validate id => Number only
         int _id = 0;
         try {
@@ -41,7 +42,8 @@ public class EmployeeController {
         Employee data = new Employee("Worapat","Tubtimdee");
         repository.save(data);
         Employee result = repository.getById(_id);
-        return result;
+        EmployeeResponse response = new EmployeeResponse(result.getId(),result.getFirstName(),result.getLastName());
+        return response;
     }
 
     @PostMapping("/employee")
